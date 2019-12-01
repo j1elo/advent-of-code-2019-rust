@@ -1,0 +1,12 @@
+# Use the default 'rustfmt' style, which conforms to the [Rust style guide][1]
+# that has been formalized through the [style RFC process][2].
+#
+# [1]: https://github.com/rust-dev-tools/fmt-rfcs/blob/master/guide/guide.md
+# [2]: https://github.com/rust-dev-tools/fmt-rfcs
+#
+# Exception: Use 80-character width lines. Allows 2 side-by-side editor panels.
+#
+# Run command: cargo fmt
+
+edition = "2018"
+max_width = 80
