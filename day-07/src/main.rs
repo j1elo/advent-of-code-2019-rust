@@ -93,7 +93,7 @@ fn part1(program: &[Intcode]) -> Intcode {
                 assert!(status == Status::NewOutput); // Debug: ensure expected status
                 next_input = processes[i].output.pop().expect("No output");
             }
-            
+
             next_input
         })
         .max()
@@ -103,7 +103,7 @@ fn part1(program: &[Intcode]) -> Intcode {
 // ----------------------------------------------------------------------------
 
 fn part2(program: &[Intcode]) -> Intcode {
-    permute::permute(vec![5,6,7,8,9])
+    permute::permute(vec![5, 6, 7, 8, 9])
         .iter()
         .map(|phases| {
             // Set up
@@ -120,7 +120,7 @@ fn part2(program: &[Intcode]) -> Intcode {
             // Run
 
             let mut next_input = 0;
-            
+
             for (i, _) in phases.iter().enumerate().cycle() {
                 processes[i].input.push(next_input);
                 let status = processes[i].exec();
