@@ -23,4 +23,5 @@ if [[ ! -d "$NAME" ]]; then
     exit 1
 fi
 
+cargo test --bin "$NAME"
 cargo run --bin "$NAME" <"$NAME/input.txt"
