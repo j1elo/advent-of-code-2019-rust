@@ -1,4 +1,4 @@
-# --- Day 7: Amplification Circuit ---
+# Day 7: Amplification Circuit
 
 Based on the navigational maps, you're going to need to send more power to your ship's thrusters to reach Santa in time. To do this, you'll need to configure a series of [amplifiers](https://en.wikipedia.org/wiki/Amplifier) already installed on the ship.
 
@@ -46,7 +46,7 @@ Try every combination of phase settings on the amplifiers. **What is the highest
 
 
 
-## --- Part Two ---
+## Part Two
 
 It's no good - in this configuration, the amplifiers can't generate a large enough output signal to produce the thrust you'll need. The Elves quickly talk you through rewiring the amplifiers into a **feedback loop**:
 

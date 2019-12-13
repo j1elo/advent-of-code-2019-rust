@@ -1,8 +1,4 @@
-![Visualization](visualization.gif)
-
-
-
-# --- Day 13: Care Package ---
+# Day 13: Care Package
 
 As you ponder the solitude of space and the ever-increasing three-hour roundtrip for messages between you and Earth, you notice that the Space Mail Indicator Light is blinking. To help keep you sane, the Elves have sent you a care package.
 
@@ -21,7 +17,9 @@ For example, a sequence of output values like `1,2,3,6,5,4` would draw a **horiz
 Start the game. **How many block tiles are on the screen when the game exits?**
 
 
-## --- Part Two ---
+## Part Two
+
+![Visualization](visualization.gif)
 
 The game didn't run because you didn't put in any quarters. Unfortunately, you did not bring any quarters. Memory address `0` represents the number of quarters that have been inserted; set it to `2` to play for free.
 

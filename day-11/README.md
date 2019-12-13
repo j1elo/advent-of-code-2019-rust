@@ -1,4 +1,4 @@
-# --- Day 11: Space Police ---
+# Day 11: Space Police
 
 <img align="right" src="visualization-1.gif">
 
@@ -67,7 +67,7 @@ Build a new emergency hull painting robot and run the Intcode program on it. **H
 
 
 
-## --- Part Two ---
+## Part Two
 
 ![Visualization](visualization-2.gif)
 
