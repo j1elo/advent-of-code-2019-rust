@@ -1,3 +1,7 @@
+![Visualization](visualization.gif)
+
+
+
 # --- Day 13: Care Package ---
 
 As you ponder the solitude of space and the ever-increasing three-hour roundtrip for messages between you and Earth, you notice that the Space Mail Indicator Light is blinking. To help keep you sane, the Elves have sent you a care package.

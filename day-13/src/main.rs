@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 use std::io;
 
-use console::Term;
+use console::{style, Term};
 
 // ----------------------------------------------------------------------------
 
@@ -41,7 +41,7 @@ fn main() {
 
     // Part 2
 
-    let answer2 = part2(&parse_line(&line));
+    let answer2 = part2(&parse_line(&line)).expect("part2");
     println!("Part 2: {}", answer2);
     assert_eq!(answer2, 15988);
 }
@@ -83,7 +83,7 @@ fn part1(program: &[Intcode]) -> usize {
 
 // ----------------------------------------------------------------------------
 
-fn part2(program: &[Intcode]) -> Intcode {
+fn part2(program: &[Intcode]) -> io::Result<Intcode> {
     let mut program = program.to_vec();
     // Hack the "Insert Coin" screen!
     program[0] = 2;
@@ -94,9 +94,8 @@ fn part2(program: &[Intcode]) -> Intcode {
     let mut paddle_pos = Point2D { x: 0, y: 0 };
 
     let term = Term::stdout();
-
-    term.hide_cursor();
-    term.clear_screen();
+    term.hide_cursor()?;
+    term.clear_screen()?;
 
     loop {
         // Run the Intcode
@@ -124,17 +123,22 @@ fn part2(program: &[Intcode]) -> Intcode {
                 // Score mode
                 score = process.output[2];
 
-                term.move_cursor_to(0, 0);
-                term.write_str(&format!("score: {}", score));
+                term.move_cursor_to(0, 0)?;
+                term.write_str(&format!("score: {}", score))?;
             } else {
                 // Tile coordinate mode
                 let id = process.output[2];
                 let c = match id {
-                    EMPTY => ' ',
-                    WALL => 'X',
-                    BLOCK => 'O',
-                    PADDLE => '=',
-                    BALL => '@',
+                    // EMPTY => ' ',
+                    // WALL => '|',
+                    // BLOCK => '#',
+                    // PADDLE => '=',
+                    // BALL => '*',
+                    EMPTY => style(' '),
+                    WALL => style(' ').on_white(),
+                    BLOCK => style(' ').on_yellow(),
+                    PADDLE => style('=').green(),
+                    BALL => style('@').red(),
                     _ => panic!("Unexpected tile id"),
                 };
 
@@ -144,17 +148,17 @@ fn part2(program: &[Intcode]) -> Intcode {
                     paddle_pos = pos;
                 }
 
-                term.move_cursor_to(pos.x as usize, pos.y as usize);
-                term.write_str(&format!("{}", c));
+                term.move_cursor_to(pos.x as usize, pos.y as usize)?;
+                term.write_str(&format!("{}", c))?;
             }
 
             process.output.clear();
         }
     }
 
-    term.clear_screen();
+    term.clear_screen()?;
 
-    score
+    Ok(score)
 }
 
 // ----------------------------------------------------------------------------
