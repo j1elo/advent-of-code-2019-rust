@@ -23,9 +23,9 @@ const RIGHT: Intcode = 1;
 
 // Config
 
-const TURTLE_SIZE: f64 = 20.0;
-const TURTLE_SPEED: i32 = 8;  // Range: [1, 25]
-// const TURTLE_SPEED: &str = "instant";
+const TURTLE_SIZE: f64 = 5.0;
+// const TURTLE_SPEED: i32 = 8;  // Range: [1, 25]
+const TURTLE_SPEED: &str = "instant";
 
 // ----------------------------------------------------------------------------
 
@@ -62,7 +62,7 @@ fn parse_line(line: &str) -> Vec<Intcode> {
 // ----------------------------------------------------------------------------
 
 fn part1(program: &[Intcode]) -> usize {
-    let painted = paint_ship(program, BLACK, false);
+    let painted = paint_ship(program, BLACK, true);
 
     painted.keys().count()
 }
@@ -105,10 +105,11 @@ fn paint_ship(program: &[Intcode],start_color: Intcode, draw: bool) -> HashMap<P
     
     let mut turtle = Turtle::new();
     if draw {
-        turtle.drawing_mut().enter_fullscreen();
+        // turtle.drawing_mut().enter_fullscreen();
         turtle.drawing_mut().set_background_color("grey");
         turtle.drawing_mut().set_center((-500.0, 0.0));
-        // turtle.hide();
+        turtle.drawing_mut().set_center((0.0, -180.0));
+        turtle.hide();
         turtle.pen_up();
         turtle.set_pen_size(TURTLE_SIZE / 2.0);
         turtle.set_speed("instant");

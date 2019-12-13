@@ -1,8 +1,6 @@
-![Visualization](visualization.gif)
-
-
-
 # --- Day 11: Space Police ---
+
+<img align="right" src="visualization-1.gif">
 
 On the way to Jupiter, you're [pulled over](https://www.youtube.com/watch?v=KwY28rpyKDE) by the **Space Police**.
 
@@ -70,6 +68,8 @@ Build a new emergency hull painting robot and run the Intcode program on it. **H
 
 
 ## --- Part Two ---
+
+![Visualization](visualization-2.gif)
 
 You're not sure what it's trying to paint, but it's definitely not a **registration identifier**. The Space Police are getting impatient.
 
