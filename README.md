@@ -2,6 +2,12 @@
 
 Problems from [Advent of Code 2019](https://adventofcode.com/2019), written in [Rust](https://www.rust-lang.org/).
 
+Visualizations are available for some days:
+
+* [Day 3: Crossed Wires](day-03/README.md#day-3-crossed-wires)
+* [Day 11: Space Police](day-11/README.md#day-11-space-police), [Part Two](day-11/README.md#part-two)
+* Day 13: Care Package, [Part Two](day-13/README.md#part-two)
+
 
 
 ## Day preparation
