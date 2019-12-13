@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 use std::io;
 
-use euclid::{Angle, point2};
+use euclid::{point2, Angle};
 use turtle::Turtle;
 
 // ----------------------------------------------------------------------------
@@ -96,13 +96,17 @@ fn part2(program: &[Intcode]) -> String {
 
 // ----------------------------------------------------------------------------
 
-fn paint_ship(program: &[Intcode],start_color: Intcode, draw: bool) -> HashMap<Point2D, Intcode> {
+fn paint_ship(
+    program: &[Intcode],
+    start_color: Intcode,
+    draw: bool,
+) -> HashMap<Point2D, Intcode> {
     let mut process = Process::new(&program);
     let mut visited = HashMap::new();
 
     // Drawing
     let colors = ["black", "white"];
-    
+
     let mut turtle = Turtle::new();
     if draw {
         // turtle.drawing_mut().enter_fullscreen();
@@ -150,7 +154,8 @@ fn paint_ship(program: &[Intcode],start_color: Intcode, draw: bool) -> HashMap<P
 
             // Draw
             if draw {
-                turtle.set_heading(dir.to_f64().angle_from_x_axis().to_degrees());
+                turtle
+                    .set_heading(dir.to_f64().angle_from_x_axis().to_degrees());
                 turtle.backward(TURTLE_SIZE / 2.0);
 
                 turtle.set_speed(TURTLE_SPEED);
@@ -159,7 +164,7 @@ fn paint_ship(program: &[Intcode],start_color: Intcode, draw: bool) -> HashMap<P
                 turtle.forward(TURTLE_SIZE);
                 turtle.pen_up();
                 turtle.set_speed("instant");
-                
+
                 turtle.forward(TURTLE_SIZE / 2.0);
                 turtle.set_speed(TURTLE_SPEED);
             }

@@ -86,10 +86,14 @@ fn run_program(mem: &mut [Intcode], input: &[Intcode]) -> Vec<Intcode> {
         _ip.set(_ip.get() + 1);
         aux
     };
-    
+
     // Remember that write access should never never be in immediate mode
     // #[rustfmt::skip]
-    fn mem_access(mem: &mut [Intcode], i: usize, immediate: bool) -> &mut Intcode {
+    fn mem_access(
+        mem: &mut [Intcode],
+        i: usize,
+        immediate: bool,
+    ) -> &mut Intcode {
         if immediate {
             &mut mem[i]
         } else {
@@ -151,8 +155,7 @@ fn run_program(mem: &mut [Intcode], input: &[Intcode]) -> Vec<Intcode> {
                 r1 = *mem_access(mem, ip(), pmodes[1]);
                 if r0 < r1 {
                     *mem_access(mem, ip(), false) = 1;
-                }
-                else {
+                } else {
                     *mem_access(mem, ip(), false) = 0;
                 }
             }
@@ -162,8 +165,7 @@ fn run_program(mem: &mut [Intcode], input: &[Intcode]) -> Vec<Intcode> {
                 r1 = *mem_access(mem, ip(), pmodes[1]);
                 if r0 == r1 {
                     *mem_access(mem, ip(), false) = 1;
-                }
-                else {
+                } else {
                     *mem_access(mem, ip(), false) = 0;
                 }
             }
