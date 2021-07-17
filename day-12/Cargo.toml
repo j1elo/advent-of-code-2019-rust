@@ -1,5 +1,5 @@
 [package]
-name = "day-03"
+name = "day-12"
 version = "0.1.0"
 authors = ["Juan Navarro <juan.navarro@gmx.es>"]
 edition = "2018"
@@ -7,7 +7,6 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-euclid = "0.20.6"
+euclid = { version = "0.20.6", features = ["serde"] }
 recap = "0.1.1"
 serde = { version = "1.0", features = ["derive"] }
-turtle = "1.0.0-rc.3"
